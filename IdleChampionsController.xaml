@@ -1,6 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="IdleChampionsController" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Code" Type="InArgument(x:String)" />
+    <x:Property Name="io_DictionaryRedemptionReport" Type="InOutArgument(scg:Dictionary(x:String, x:Boolean))" />
   </x:Members>
   <this:IdleChampionsController.in_Code>
     <InArgument x:TypeArguments="x:String">
@@ -8,7 +9,7 @@
     </InArgument>
   </this:IdleChampionsController.in_Code>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>930,6173</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1006,7783</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
@@ -106,10 +107,19 @@
       <AssemblyReference>System.Collections</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="IdleChampions-CodeChestOpener.IdleChampionsController;" sap:VirtualizedContainerService.HintSize="686,6108" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence sap2010:Annotation.AnnotationText="Important, the Idle Champion screen should be at the inventory screen just before clicking on a chest." DisplayName="IdleChampions-CodeChestOpener.IdleChampionsController;" sap:VirtualizedContainerService.HintSize="686,7718" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strWorkflowName" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message IIdleChampions-CodeChestOpener.IdleChampionsController.Begin;" sap:VirtualizedContainerService.HintSize="644,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace">
@@ -119,7 +129,30 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <Sequence DisplayName="Sequence Select Window" sap:VirtualizedContainerService.HintSize="644,5754" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Sequence Initializations" sap:VirtualizedContainerService.HintSize="644,192" sap2010:WorkflowViewState.IdRef="Sequence_31">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MultipleAssign DisplayName="Multiple Assign Initializations" sap:VirtualizedContainerService.HintSize="431,100" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">strWorkflowName</CSharpReference>
+                </OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">IdleChamptions-CodeChestOpener.IdleChampionsController</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+    </Sequence>
+    <Sequence DisplayName="Sequence Select Idle Champions Window" sap:VirtualizedContainerService.HintSize="644,7101" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Default="False" Name="isCodeError" />
       </Sequence.Variables>
@@ -129,13 +162,13 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: Idle Champions" sap:VirtualizedContainerService.HintSize="602,5662" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="49bf1554-3eb3-4333-8000-46687fc0a9c1" Version="V2">
+      <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: Idle Champions" sap:VirtualizedContainerService.HintSize="602,7009" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="49bf1554-3eb3-4333-8000-46687fc0a9c1" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do Open Chest" sap:VirtualizedContainerService.HintSize="568,5372" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="Do Open Chest Operations" sap:VirtualizedContainerService.HintSize="568,6719" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -152,7 +185,7 @@
                   </uix:TargetAnchorable>
                 </uix:NClick.Target>
               </uix:NClick>
-              <Sequence sap2010:Annotation.AnnotationText="Starting at the chest inventory screen, click on the chest, set the clipboard, paste and click the unlock button." DisplayName="Sequence Part 01 Unlock Button" sap:VirtualizedContainerService.HintSize="526,94" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence sap2010:Annotation.AnnotationText="Starting at the chest inventory screen, click on the chest, set the clipboard, paste and click the unlock button." DisplayName="Sequence Part 01 Unlock Button" sap:VirtualizedContainerService.HintSize="526,936" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -178,15 +211,15 @@
                     <uix:TargetAnchorable ContentHash="Q_XRv6LsNEqt0-Ivhm52xg" DesignTimeRectangle="584, 567, 128, 46" FriendlyName="'idledragons.exe Idle'" Guid="461d8b00-ad29-48c2-ae3c-1624503ff0cf" ImageBase64="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" InformativeScreenshot="e7b0448b2556ee5a0185d11b297fa84f.png" Reference="wGB1_u4I50OCI7zfnBmzEA/VIOzZ293CUGXU2KbLsDOMQ" ScopeSelectorArgument="&lt;wnd app='idledragons.exe' cls='UnityWndClass' title='Idle Champions' /&gt;" SearchSteps="Image" TargetType="ImageBased" Visibility="Interactive" />
                   </uix:NClick.Target>
                 </uix:NClick>
-                <ui:LogMessage DisplayName="Log Message IdleChampions-CodeChestOpener.IdleChampionsController.Part01;" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace">
+                <ui:LogMessage DisplayName="Log Message IdleChampions-CodeChestOpener.IdleChampionsController.Part01.End;" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace">
                   <ui:LogMessage.Message>
                     <InArgument x:TypeArguments="x:Object">
-                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">"IdleChampions-CodeChestOpener.IdleChampionsController.Part01;"</CSharpValue>
+                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">"IdleChampions-CodeChestOpener.IdleChampionsController.Part01.End;"</CSharpValue>
                     </InArgument>
                   </ui:LogMessage.Message>
                 </ui:LogMessage>
               </Sequence>
-              <Sequence sap2010:Annotation.AnnotationText="Check to see if the pop window is not a valid combination or already redeemed." DisplayName="Sequence Part 02 Check For Errors" sap:VirtualizedContainerService.HintSize="526,3636" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence sap2010:Annotation.AnnotationText="Check to see if the pop window is not a valid combination or already redeemed." DisplayName="Sequence Part 02 Check For Errors" sap:VirtualizedContainerService.HintSize="526,3640" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="isWindowNotValidCombination" />
                   <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="isWindowAlreadyRedeemed" />
@@ -195,7 +228,7 @@
                 </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
@@ -219,6 +252,12 @@
                       </ui:Target.WaitForReady>
                     </ui:Target>
                   </ui:FindImageMatches.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </ui:FindImageMatches>
                 <If DisplayName="If isWindowNotValidCombination" sap:VirtualizedContainerService.HintSize="484,670" sap2010:WorkflowViewState.IdRef="If_1">
                   <If.Condition>
@@ -226,6 +265,12 @@
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">isWindowNotValidCombination.Count() != 0</CSharpValue>
                     </InArgument>
                   </If.Condition>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
                     <Sequence DisplayName="Sequence Pop Up Found Invalid Combination" sap:VirtualizedContainerService.HintSize="376,482" sap2010:WorkflowViewState.IdRef="Sequence_9">
                       <sap:WorkflowViewStateService.ViewState>
@@ -277,15 +322,27 @@
                       </ui:Target.WaitForReady>
                     </ui:Target>
                   </ui:FindImageMatches.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </ui:FindImageMatches>
-                <If DisplayName="If isWindowAlreadyRedeemed" sap:VirtualizedContainerService.HintSize="484,669" sap2010:WorkflowViewState.IdRef="If_2">
+                <If DisplayName="If isWindowAlreadyRedeemed" sap:VirtualizedContainerService.HintSize="484,670" sap2010:WorkflowViewState.IdRef="If_2">
                   <If.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">isWindowAlreadyRedeemed.Count() != 0</CSharpValue>
                     </InArgument>
                   </If.Condition>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Sequence Pop Up Found Already Redeemed" sap:VirtualizedContainerService.HintSize="376,481" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence DisplayName="Sequence Pop Up Found Already Redeemed" sap:VirtualizedContainerService.HintSize="376,482" sap2010:WorkflowViewState.IdRef="Sequence_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -335,15 +392,27 @@
                       </ui:Target.WaitForReady>
                     </ui:Target>
                   </ui:FindImageMatches.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </ui:FindImageMatches>
-                <If DisplayName="If isWindowOfferExpired" sap:VirtualizedContainerService.HintSize="484,668" sap2010:WorkflowViewState.IdRef="If_5">
+                <If DisplayName="If isWindowOfferExpired" sap:VirtualizedContainerService.HintSize="484,670" sap2010:WorkflowViewState.IdRef="If_5">
                   <If.Condition>
                     <InArgument x:TypeArguments="x:Boolean">
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">isWindowOfferExpired.Count() != 0</CSharpValue>
                     </InArgument>
                   </If.Condition>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Sequence Pop Up Offer Expired" sap:VirtualizedContainerService.HintSize="376,480" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                    <Sequence DisplayName="Sequence Pop Up Offer Expired" sap:VirtualizedContainerService.HintSize="376,482" sap2010:WorkflowViewState.IdRef="Sequence_27">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -373,15 +442,6 @@
                       </uix:NClick>
                     </Sequence>
                   </If.Then>
-                  <If.Else>
-                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_28">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </Sequence>
-                  </If.Else>
                 </If>
                 <ui:FindImageMatches DisplayName="Find Image Matches Cannot Redeem" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="FindImageMatches_4">
                   <ui:FindImageMatches.Image>
@@ -402,6 +462,12 @@
                       </ui:Target.WaitForReady>
                     </ui:Target>
                   </ui:FindImageMatches.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </ui:FindImageMatches>
                 <If DisplayName="If isWindowCannotRedeem" sap:VirtualizedContainerService.HintSize="484,670" sap2010:WorkflowViewState.IdRef="If_6">
                   <If.Condition>
@@ -409,6 +475,12 @@
                       <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">isWindowCannotRedeem.Count() != 0</CSharpValue>
                     </InArgument>
                   </If.Condition>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
                     <Sequence DisplayName="Sequence Cannot Run" sap:VirtualizedContainerService.HintSize="376,482" sap2010:WorkflowViewState.IdRef="Sequence_29">
                       <sap:WorkflowViewStateService.ViewState>
@@ -440,32 +512,28 @@
                       </uix:NClick>
                     </Sequence>
                   </If.Then>
-                  <If.Else>
-                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_30">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </Sequence>
-                  </If.Else>
                 </If>
-                <ui:LogMessage DisplayName="Log Message IdleChampions-CodeChestOpener.IdleChampionsController.Part02.ErrorChecksEnd;" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace">
+                <ui:LogMessage DisplayName="Log Message IdleChampions-CodeChestOpener.IdleChampionsController.Part02.End;" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace">
                   <ui:LogMessage.Message>
                     <InArgument x:TypeArguments="x:Object">
-                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">"IdleChampions-CodeChestOpener.IdleChampionsController.Part02.ErrorChecksEnd; Code: " + in_Code</CSharpValue>
+                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">"IdleChampions-CodeChestOpener.IdleChampionsController.Part02.End;"</CSharpValue>
                     </InArgument>
                   </ui:LogMessage.Message>
                 </ui:LogMessage>
               </Sequence>
-              <If DisplayName="If Error Close Window" sap:VirtualizedContainerService.HintSize="526,438" sap2010:WorkflowViewState.IdRef="If_4">
+              <If sap2010:Annotation.AnnotationText="If one of the previous error cases was met then this block will run." DisplayName="If Error Close Window" sap:VirtualizedContainerService.HintSize="526,600" sap2010:WorkflowViewState.IdRef="If_4">
                 <If.Condition>
                   <InArgument x:TypeArguments="x:Boolean">
                     <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">isCodeError == true</CSharpValue>
                   </InArgument>
                 </If.Condition>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence DisplayName="Sequence Error Close Window" sap:VirtualizedContainerService.HintSize="376,250" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                  <Sequence DisplayName="Sequence Error Close Window" sap:VirtualizedContainerService.HintSize="376,381" sap2010:WorkflowViewState.IdRef="Sequence_25">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -476,19 +544,17 @@
                         <uix:TargetAnchorable ContentHash="Kd8p2SreNUenq3uFVAiP3g" DesignTimeRectangle="1336, 36, 36, 31" FriendlyName="'idledragons.exe Idle'" Guid="846f08e8-b16c-42fc-8ffe-2dd0aee06b3a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAAfCAYAAACPvW/2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJPSURBVFhH1dW/axNhHMfx6w8hg0PGEzpr8yd0qENR1IMS6Fhwyujev6A4CbZwVQyHSuhVCAREcJCjcCBcBEt0OodCHDrc4HCDg+Pj9/P0vsfzPE1iLr2cZHjzDc/dPXm1yV0se80WG5Yl0l+pnGir4v78TkWv58tpNe40NNCe0xQDmlUFUJIkonPSkdNyHjniyWpNJGkqJxp14bxqURrItu2RoN4c61JjQfjIxoH4orKbDFq/vXigj0Z+raZlHndpTY334UoFBZtbIjruyMaButs7InztyQnQF1rjvVCpoOhzJGJ6RCBGqceDh00RXyR5AJ3SOu+F5gZilIqJElq/LqiVgTARTnynXDTAGuXSaxSfD7WiT4HwH7c0COo+2Jbnh7xPVmmgYOWGfIM39x0dZUBUDMr3ySoMAgYbYcqWlvOwvk9pqAkY5Bs9pYBCI0CNQiAEEApeuFdA+PhUDPpgZIKGP2LheS/llKBdQgxpM0yELzQ2wkTmX/iMvqg+3dKMwLVq4au2BuJ9uEPl9S6lgfBbVhSkYkaB4p86ivfhSgW9v3tPw6BOc0fs36yJ8K2Xg1QU78NNBt0qBor6Aw2D/xYwHFAMQtgH1/FeyAR9P+uLo6MDOQuDTtv0hnj4UV16EOK8wxW665boi756Wei1c/A0oG8ZCLMwCAHCGPU8RmENtz7f/tOAXPf57CCGcHweAmrScVQpCP3ruAkafI0kCHMqUNnNDJpXM4GqajFATgbCRHt0UlVNBeJf8ypaTBBOqrIroHq9LkH/s0tQJP4CMNbEBJnqD5MAAAAASUVORK5CYII=" InformativeScreenshot="192bc1818feae3aaed833696d98b9814.png" Reference="wGB1_u4I50OCI7zfnBmzEA/NAn-nJrJB0aoMPdmIXBlXw" ScopeSelectorArgument="&lt;wnd app='idledragons.exe' cls='UnityWndClass' title='Idle Champions' /&gt;" SearchSteps="Image" TargetType="ImageBased" Visibility="Interactive" />
                       </uix:NClick.Target>
                     </uix:NClick>
+                    <ui:LogMessage DisplayName="Log IdleChampions-CodeChestOpener.IdleChampionsController.Part03.End;" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Trace">
+                      <ui:LogMessage.Message>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">"IdleChampions-CodeChestOpener.IdleChampionsController.CodeNotRedeemed; Code Not Redeemed: " + in_Code</CSharpValue>
+                        </InArgument>
+                      </ui:LogMessage.Message>
+                    </ui:LogMessage>
                   </Sequence>
                 </If.Then>
-                <If.Else>
-                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_26">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </Sequence>
-                </If.Else>
               </If>
-              <If sap2010:Annotation.AnnotationText="If the previous windows ddid not present then the valid case should be handled." DisplayName="Sequence Part 03 If Valid Code" sap:VirtualizedContainerService.HintSize="526,795" sap2010:WorkflowViewState.IdRef="If_3">
+              <If sap2010:Annotation.AnnotationText="If the previous windows ddid not present then the valid case should be handled here." DisplayName="Sequence Part 03 If Valid Code" sap:VirtualizedContainerService.HintSize="526,938" sap2010:WorkflowViewState.IdRef="If_3">
                 <If.Condition>
                   <InArgument x:TypeArguments="x:Boolean">
                     <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">isCodeError == false</CSharpValue>
@@ -497,10 +563,12 @@
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence DisplayName="Sequence Valid Code" sap:VirtualizedContainerService.HintSize="376,576" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <Sequence DisplayName="Sequence Valid Code" sap:VirtualizedContainerService.HintSize="376,708" sap2010:WorkflowViewState.IdRef="Sequence_23">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -516,25 +584,40 @@
                         <uix:TargetAnchorable ContentHash="6SxUIEcffE2I0l6_mGYimQ" DesignTimeRectangle="664, 370, 146, 45" FriendlyName="'idledragons.exe Idle'" Guid="a90a33c3-4a15-4d53-9b00-b557ad4fe568" ImageBase64="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" InformativeScreenshot="b7cdd520aacf53b15e6b36646f84d0e8.png" Reference="wGB1_u4I50OCI7zfnBmzEA/8X44wZzrG0CbCmZJ9lfzWA" ScopeSelectorArgument="&lt;wnd app='idledragons.exe' cls='UnityWndClass' title='Idle Champions' /&gt;" SearchSteps="Image" TargetType="ImageBased" Visibility="Interactive" />
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <ui:LogMessage DisplayName="Log Message IdleChampions-CodeChestOpener.IdleChampionsController.CodeRedeemed;" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info">
+                    <ui:LogMessage DisplayName="Log IdleChampions-CodeChestOpener.IdleChampionsController.Part03.End;" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info">
                       <ui:LogMessage.Message>
                         <InArgument x:TypeArguments="x:Object">
-                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">"IdleChampions-CodeChestOpener.IdleChampionsController.CodeRedeemed; Code successfully redeemed: " + in_Code</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">"IdleChampions-CodeChestOpener.IdleChampionsController.Part03.Redeemed; Code Redeemed: " + in_Code</CSharpValue>
+                        </InArgument>
+                      </ui:LogMessage.Message>
+                    </ui:LogMessage>
+                    <ui:LogMessage DisplayName="Log IdleChampions-CodeChestOpener.IdleChampionsController.Part03.End;" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace">
+                      <ui:LogMessage.Message>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_42">"IdleChampions-CodeChestOpener.IdleChampionsController.Part03.End;"</CSharpValue>
                         </InArgument>
                       </ui:LogMessage.Message>
                     </ui:LogMessage>
                   </Sequence>
                 </If.Then>
-                <If.Else>
-                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_24">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </Sequence>
-                </If.Else>
               </If>
+              <Sequence DisplayName="Sequence out_DictionaryRedemptionReport[in_Code]" sap:VirtualizedContainerService.HintSize="526,155" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign out_DictionaryRedemptionReport[in_Code]" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="Assign_8">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">
+                      <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">io_DictionaryRedemptionReport[in_Code]</CSharpReference>
+                    </OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
             </Sequence>
           </ActivityAction>
         </uix:NApplicationCard.Body>
