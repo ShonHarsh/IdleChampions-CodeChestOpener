@@ -9,7 +9,7 @@
     </InArgument>
   </this:IdleChampionsController.in_Code>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1050,9482</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>754,9482</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="74">
@@ -533,7 +533,7 @@
                 <ui:LogMessage DisplayName="Log Message IdleChampions-CodeChestOpener.IdleChampionsController.Part02.End;" sap:VirtualizedContainerService.HintSize="482,150" sap2010:WorkflowViewState.IdRef="LogMessage_9">
                   <ui:LogMessage.Level>
                     <InArgument x:TypeArguments="ui:LogLevel">
-                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">UiPath.Core.Activities.LogLevel.Error</CSharpValue>
+                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">UiPath.Core.Activities.LogLevel.Trace</CSharpValue>
                     </InArgument>
                   </ui:LogMessage.Level>
                   <ui:LogMessage.Message>
