@@ -1,4 +1,4 @@
-![](https://shonharsh.github.io/curriculum-vitae/images/idle-champions-logo.jpg)
+![Banner](https://github.com/ShonHarsh/IdleChampions-CodeChestOpener/Data/Images/Bannerr-Idle-Champions.jpg)
 
 # IdleChampions-CodeChestOpener
 This project takes codes from a spreadsheet and opens chests in the game Idle Champions
@@ -21,7 +21,7 @@ After making a pull request or downloading the project, open the Main.xaml in Ui
 
 ### Sample Output
 
-```
+```sh
 07/28/2022 21:24:02 => [Debug] Debug started for file: Main
 07/28/2022 21:24:04 => [Info] IdleChampions-CodeChestOpener execution started
 07/28/2022 21:24:05 => [Debug] IdleChampions-CodeChestOpener.Main.Begin;
@@ -64,7 +64,9 @@ Microsoft Windows 10 Pro 64-bit
 
 Clone the project to develop or change it.
 
-`git clone https://github.com/ShonHarsh/IdleChampions-CodeChestOpener`
+```sh
+git clone https://github.com/ShonHarsh/IdleChampions-CodeChestOpener
+```
 
 ### Links
 
