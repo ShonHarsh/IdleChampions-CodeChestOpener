@@ -1,4 +1,4 @@
-![Banner](https://github.com/ShonHarsh/IdleChampions-CodeChestOpener/Data/Images/Bannerr-Idle-Champions.jpg)
+![Banner](https://github.com/ShonHarsh/IdleChampions-CodeChestOpener/Data/Images/Banner-Idle-Champions.jpg)
 
 # IdleChampions-CodeChestOpener
 This project takes codes from a spreadsheet and opens chests in the game Idle Champions
